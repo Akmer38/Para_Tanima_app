@@ -3,10 +3,21 @@ Bu projede, görme engelli bireylerin günlük yaşamlarında karşılaştıklar
 Projeye ilk olarak veri seti oluşturma süreci ile başlanmıştır. TL-USD-EURO gibi farklı birimlerin baknotları farklı açılardan ve ışık koşullarında görüntülenmiş, ardından Roboflow platformu kullanılarak bu görüntüler detaylı şekilde etiketlenmiştir. Veriler, YOLOv8 mimarisi için uygun formatta dışa aktarılmıştır.
 
 YOLOv8 modeli, oluşturulan veri setiyle eğitilmiş ve yüksek doğruluk oranına sahip bir para tanıma modeli elde edilmiştir. Eğitim sürecinde modelin loss değerleri, doğruluk oranı ve sınıflandırma başarımı sürekli izlenmiş ve optimize edilmiştir. 
-
+ <img width="1400" height="600" alt="4" src="https://github.com/user-attachments/assets/f4273050-8076-40b5-88b6-8c2b741cc199" />
+      
+Şekil 1. eğitim doğruluk grafiği
 Elde edilen modelin mobil uygulamayla iletişim kurabilmesi için Flask tabanlı bir web sunucu API’si geliştirilmiştir. Bu sunucu, Flutter uygulamasından gelen görüntüleri YOLOv8 modeliyle analiz eder ve tespit edilen para birimini hem metin hem de sesli çıktı olarak kullanıcıya geri döner. Sesli çıktı, gTTS (Google Text-to-Speech) kütüphanesi ile oluşturulmuş ve ses verisi base64 formatında mobil cihaza aktarılmıştır.
 
 Elde edilen modelin mobil uygulamayla iletişim kurabilmesi için Flask tabanlı bir web sunucu API’si geliştirilmiştir. Bu sunucu, Flutter uygulamasından gelen görüntüleri YOLOv8 modeliyle analiz eder ve tespit edilen para birimini hem metin hem de sesli çıktı olarak kullanıcıya geri döner. Sesli çıktı, gTTS (Google Text-to-Speech) kütüphanesi ile oluşturulmuş ve ses verisi base64 formatında mobil cihaza aktarılmıştır. Uygulamada, kullanıcının tercihlerine göre Türkçe veya İngilizce olmak üzere iki farklı dilde sesli bildirim seçeneği sunulmaktadır. Bu özellik sayesinde uygulama, farklı dilde kullanıcılar tarafından da erişilebilir hale getirilmiş ve kapsayıcılığı artırılmıştır.
+<img width="560" height="245" alt="3" src="https://github.com/user-attachments/assets/0ede2cd1-c7d9-46c0-ab9b-ae196f6a7862" />
+
+   Şekil 2. Uygulama Akış Şeması
+
+       
+Uygulamadan örnek görüntüler:
+
+![2](https://github.com/user-attachments/assets/ca554c4e-cb38-4812-b2ba-2c57477a8b11)
+<img width="436" height="814" alt="1" src="https://github.com/user-attachments/assets/0aaedeeb-dc34-4639-a3b4-2e0d48aac934" />
 
 Uygulamanın genel mimarisi; kamera, HTTP veri alışverişi, ses sentezi ve ses oynatma gibi farklı teknolojilerin uyum içinde çalıştığı, entegre ve erişilebilir bir sistemdir. Uygulama, herhangi bir manuel giriş gerektirmeden çalışarak özellikle görme engelli bireyler için erişilebilirliği ön plana çıkarmaktadır. 
  
